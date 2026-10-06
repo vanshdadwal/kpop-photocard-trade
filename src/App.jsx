@@ -1,18 +1,11 @@
 import './App.css'
-function App() {
+import { Routes, Route, Link } from 'react-router-dom'
+import Register from './pages/Register'
+import Login from './pages/login'
+
+function Home() {
   return (
-    <div>
-      <header>
-        <h2>K-Pop Vault</h2>
-
-        <nav>
-          <a href="#home">Home</a>{" "}
-          <a href="#catalog">Catalog</a>{" "}
-          <a href="#collection">My Collection</a>{" "}
-          <a href="#trades">Trades</a>
-        </nav>
-      </header>
-
+    <>
       <main id="home">
         <h1>Welcome to K-Pop Photocard Collection</h1>
 
@@ -38,6 +31,28 @@ function App() {
         <h2>Trade Ledger</h2>
         <p>Track your photocard trades and their status.</p>
       </section>
+    </>
+  )
+}
+
+function App() {
+  return (
+    <div>
+      <header>
+        <h2>K-Pop Vault</h2>
+
+        <nav>
+          <Link to="/">Home</Link>{' '}
+          <Link to="/register">Register</Link>{' '}
+          <Link to="/login">Login</Link>
+        </nav>
+      </header>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
     </div>
   )
 }
